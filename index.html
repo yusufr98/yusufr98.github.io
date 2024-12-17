@@ -13,35 +13,48 @@
         <div class="container">
         <p class="title">image processing</p>
         <div class="form">
-        <label for="level">pixelation level</label>
+        <p>pixelation level</p>
           <input class= "level" name="level" id="levelInput" type="text" value="2" onchange="changeV()">
-        <label>Purple:
+          <p>color palette</p>
+        <label>purple:
           <input type="checkbox" class="color" value="purple" data-id="purple_" checked="true"></label>
-        <label>Green:
+        <label>green:
           <input type="checkbox" class="color" value="green" data-id="green_" checked="true"></label>
-        <label>Gray:
+        <label>gray:
           <input type="checkbox" class="color" value="gray" data-id="gray_" checked="true"></label>
-        <label>Red:
+        <label>red:
           <input type="checkbox" class="color" value="red" data-id="red_" checked="true"></label>
-        <label>Yellow:
+        <label>yellow:
           <input type="checkbox" class="color" value="yellow" data-id="yellow_" checked="true"></label>
-        <label>Mint:
+        <label>mint:
           <input type="checkbox" class="color" value="mint" data-id="mint_" checked="true"></label>
-        <label>Light Blue:
+        <label>light blue:
           <input type="checkbox" class="color" value="lightblue" data-id="lightblue_" checked="true"></label>
-        <label>Brown:
+        <label>brown:
           <input type="checkbox" class="color" value="brown" data-id="brown_" checked="true"></label>
-        <label>Orange:
+        <label>orange:
           <input type="checkbox" class="color" value="orange" data-id="orange_" checked="true"></label>
-        <label>Crimson:
+        <label>crimson:
           <input type="checkbox" class="color" value="crimson" data-id="crimson_" checked="true"></label>
-        <label>Teal:
+        <label>teal:
           <input type="checkbox" class="color" value="teal" data-id="teal_" checked="true"></label>
-        <label>Dark Teal:
+        <label>dark teal:
           <input type="checkbox" class="color" value="teal2" data-id="teal2_" checked="true"></label>
-        <label id="reverselabel">Reverse Palette:  
+        <label id="reverselabel">reverse palette:  
           <input type="checkbox" id="reverse" name="reverse" value="reverse"></label>
-         
+          <div class="radios">
+            <p>pixel outline</p>
+            <label for="none">none<input type="radio" id="none" name="pixelOutline" value="none" checked="true"/></label>
+            <label for="small">small<input type="radio" id="small" name="pixelOutline" value="small" /></label>
+            <label for="medium">medium<input type="radio" id="medium" name="pixelOutline" value="medium" /></label>
+            <label for="large">large<input type="radio" id="large" name="pixelOutline" value="large" /></label>
+          </div>
+          <div>
+            <label>light:
+            <input type="radio" name="pixel" id="light" value="light" > <br><p id="note">(note: image may not display correctly, but download will be fine)</p></label>
+          <label>dark:
+            <input type="radio" name="pixel" id="dark" value="dark" checked="true"></label>
+            </div>
         </div>
       
         <div class="canvas" id="canvas"></div>

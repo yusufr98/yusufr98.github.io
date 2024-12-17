@@ -5,11 +5,12 @@ let img;
 let dlbutton;
 let checkBoxes = document.querySelectorAll(".color");
 let reverseCheck = document.getElementById("reverse");
-
-
+let outlineColor = document.getElementsByName("pixel");
+let radios = document.getElementsByName("pixelOutline");
 let selectedColors = [];
 var pixelation_level = 2;
-let outlineWeight = .5;
+let outlineWeight = 0;
+let outlineStroke = 0;
 const palette = {
   purple_: [142, 68, 173],//purple
   green_: [39, 174, 96],//green
@@ -36,7 +37,7 @@ function setup() {
   // Create a file input and place it beneath
   // the canvas.
   input = createFileInput(handleImage);
-  input.position(windowWidth - 200, 100);
+  input.position(windowWidth - 200, 20);
   pixelDensity(1);
   dlbutton = createButton('Download');
   dlbutton.position(input.x, input.y + 50);
@@ -51,17 +52,19 @@ function draw() {
   // resizeCanvas(img.width,img.height);
   // }
   dlbutton.mousePressed(download);
-
+  
+  outlineColor.forEach(elm => elm.addEventListener("change", setColor));
   reverseCheck.addEventListener("change", paletteReverse);
   checkBoxes.forEach(elm => elm.addEventListener("change", updateColors));
+  radios.forEach(elm => elm.addEventListener("change", setOutline));
 
   // Draw the image if loaded.
   if (img) {
     
-    img.resize(floor(windowWidth*2)/5, 0);
+    img.resize(floor((windowWidth*2)/5), 0);
     resizeCanvas(floor(img.width), floor(img.height));
     img.loadPixels();
-
+    noStroke();
     for (let x = 0; x < img.width; x += pixelation_level) {
       for (let y = 0; y < img.height; y += pixelation_level) {
         
@@ -80,11 +83,11 @@ function draw() {
 
         fill(neonR, neonG, neonB, 200);
         
-        stroke(0);
-        strokeWeight(.5);
+        stroke(outlineStroke);
+        strokeWeight(outlineWeight);
         // noStroke();
        
-        square(x, y, pixelation_level);
+        square(x+outlineWeight, y+outlineWeight, pixelation_level-outlineWeight);
         
       }
     }
@@ -103,6 +106,29 @@ function handleImage(file) {
 }
 function paletteReverse(){
   selectedColors.reverse();
+}
+function setOutline(){
+  if(document.getElementById("small").checked==true){
+    outlineWeight = .2;
+  }
+  else if(document.getElementById("medium").checked==true){
+    outlineWeight = .5;
+  }
+  else if(document.getElementById("large").checked==true){
+    outlineWeight = .8;
+  }
+  if(document.getElementById("none").checked==true){
+    outlineWeight = 0;
+  }
+  
+}
+function setColor() {
+  if(document.getElementById("light").checked == true){
+    outlineStroke = 200;
+  }
+  else if(document.getElementById("dark").checked == true){
+    outlineStroke = 0;
+  }
 }
 function updateColors() {
   selectedColors = Array.from(checkBoxes)
