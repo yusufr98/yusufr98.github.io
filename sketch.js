@@ -26,12 +26,7 @@ const palette = {
   teal2_:[22, 160, 133]//teal 2
 };
 
-function changeV(){
-  pixelation_level = parseInt(document.getElementById("levelInput").value, 10);
-}
-
 function setup() {
-  
   var canvas = createCanvas(400, 400);
       canvas.parent('canvas');
   // Create a file input and place it beneath
@@ -47,10 +42,6 @@ function setup() {
 }
 
 function draw() {
-  ;
-  // if(img){
-  // resizeCanvas(img.width,img.height);
-  // }
   dlbutton.mousePressed(download);
   
   outlineColor.forEach(elm => elm.addEventListener("change", setColor));
@@ -60,7 +51,6 @@ function draw() {
 
   // Draw the image if loaded.
   if (img) {
-    
     img.resize(floor((windowWidth*2)/5), 0);
     resizeCanvas(floor(img.width), floor(img.height));
     img.loadPixels();
@@ -85,7 +75,6 @@ function draw() {
         
         stroke(outlineStroke);
         strokeWeight(outlineWeight);
-        // noStroke();
        
         square(x+outlineWeight, y+outlineWeight, pixelation_level-outlineWeight);
         
@@ -93,10 +82,11 @@ function draw() {
     }
   }
 }
+
 function download(){
   saveCanvas();
 }
-// Create an image if the file is an image.
+
 function handleImage(file) {
   if (file.type === 'image') {
     img = loadImage(file.data);
@@ -104,9 +94,11 @@ function handleImage(file) {
     img = null;
   }
 }
+
 function paletteReverse(){
   selectedColors.reverse();
 }
+
 function setOutline(){
   if(document.getElementById("small").checked==true){
     outlineWeight = .2;
@@ -122,6 +114,7 @@ function setOutline(){
   }
   
 }
+
 function setColor() {
   if(document.getElementById("light").checked == true){
     outlineStroke = 200;
@@ -130,11 +123,17 @@ function setColor() {
     outlineStroke = 0;
   }
 }
+
 function updateColors() {
   selectedColors = Array.from(checkBoxes)
     .filter(elm => elm.checked)
     .map(elm => palette[elm.getAttribute('data-id')]);
 }
+
 function windowResized(){
   resizeCanvas(img.width,img.height);
+}
+
+function changeV(){
+  pixelation_level = parseInt(document.getElementById("levelInput").value, 10);
 }
