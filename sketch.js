@@ -43,11 +43,11 @@ function setup() {
   dlbutton.position(input.x, input.y + 50);
   
   updateColors();
-  
+  background(200 , 0)
 }
 
 function draw() {
-  background(200);
+  ;
   // if(img){
   // resizeCanvas(img.width,img.height);
   // }
