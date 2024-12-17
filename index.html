@@ -1,0 +1,51 @@
+
+<html>
+  <head>
+    <script src="p5.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+        <!-- <input type="file" id="imageUpload" name="imageUpload" accept="image/*"> 
+        <input type="submit" value="Upload"> -->
+        <div class="container">
+        <p class="title">image processing</p>
+        <div class="form">
+        <label for="level">pixelation level</label>
+          <input class= "level" name="level" id="levelInput" type="text" value="2" onchange="changeV()">
+        <label>Purple:
+          <input type="checkbox" class="color" value="purple" data-id="purple_" checked="true"></label>
+        <label>Green:
+          <input type="checkbox" class="color" value="green" data-id="green_" checked="true"></label>
+        <label>Gray:
+          <input type="checkbox" class="color" value="gray" data-id="gray_" checked="true"></label>
+        <label>Red:
+          <input type="checkbox" class="color" value="red" data-id="red_" checked="true"></label>
+        <label>Yellow:
+          <input type="checkbox" class="color" value="yellow" data-id="yellow_" checked="true"></label>
+        <label>Mint:
+          <input type="checkbox" class="color" value="mint" data-id="mint_" checked="true"></label>
+        <label>Light Blue:
+          <input type="checkbox" class="color" value="lightblue" data-id="lightblue_" checked="true"></label>
+        <label>Brown:
+          <input type="checkbox" class="color" value="brown" data-id="brown_" checked="true"></label>
+        <label>Orange:
+          <input type="checkbox" class="color" value="orange" data-id="orange_" checked="true"></label>
+        <label>Crimson:
+          <input type="checkbox" class="color" value="crimson" data-id="crimson_" checked="true"></label>
+        <label>Teal:
+          <input type="checkbox" class="color" value="teal" data-id="teal_" checked="true"></label>
+        <label>Dark Teal:
+          <input type="checkbox" class="color" value="teal2" data-id="teal2_" checked="true"></label>
+        <label id="reverselabel">Reverse Palette:  
+          <input type="checkbox" id="reverse" name="reverse" value="reverse"></label>
+         
+        </div>
+      
+        <div class="canvas" id="canvas"></div>
+      </div>
+    <script src="sketch.js"></script>
+  </body>
+</html>

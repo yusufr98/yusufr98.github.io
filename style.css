@@ -1,0 +1,49 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+  
+}
+.title{
+  margin-left: 30px;
+  
+  font-size: 40px;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+.container {
+  display: grid;
+  font-family: "Pixelify Sans", serif;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+label{
+  font-size:20px;
+}
+
+.form{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  margin-left: 30px;
+}
+.level{
+  margin-bottom: 20px;
+}
+#reverselabel{
+  margin-top:20px;
+}
+.canvas {
+  grid-column-start: 4;
+}
+input[type=checkbox] { 
+  vertical-align: middle; 
+  position: relative; 
+  bottom: 1px; 
+} 
+  
+label { 
+  display: block; 
+} 
+  
+  
